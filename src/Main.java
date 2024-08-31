@@ -1,14 +1,28 @@
+import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
+import br.com.alura.screenmatch.modelos.Filme;
+
 public class Main {
     public static void main(String[] args) {
-        Filme filme1 = new Filme();
+       Filme meuFilme = new Filme();
+        meuFilme.setNome("O poderoso chefão");
+        meuFilme.setAnoDeLancamento(1970);
+        meuFilme.setDuracaoEmMinutos(180);
 
-        filme1.nome = "Interestelar";
-        filme1.anoDeLancamento = 2018;
-        filme1.avaliacao = 10.0;
-        filme1.duracaoEmMinutos = 200;
-        filme1.incluidoNoPlano = true;
-        filme1.totalDeAvaliacoes = 1;
 
-        System.out.println(filme1.nome);
+        meuFilme.exibeFichaTecnica();
+        meuFilme.avalia(8);
+        meuFilme.avalia(5);
+        meuFilme.avalia(10);
+        System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
+        System.out.println(meuFilme.pegaMedia());
+        //meuFilme.somaDasAvaliacoes = 10;
+        //meuFilme.totalDeAvaliacoes = 1;
+        //System.out.println(meuFilme.pegaMedia());
+
+        CalculadoraDeTempo calculadoraDeTempo = new CalculadoraDeTempo();
+        calculadoraDeTempo.inclui(meuFilme);
+        System.out.println(calculadoraDeTempo.getTempoTotal());
+
     }
+
 }
